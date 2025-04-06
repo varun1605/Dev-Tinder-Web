@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import NavBar from "./Navbar";
 import { Outlet } from "react-router-dom";
 
@@ -6,6 +7,7 @@ const Body = () => {
     <div>
       <NavBar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
