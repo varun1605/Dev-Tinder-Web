@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
-  name: "user",
+  name: "user", // this name is just for the sake of debugging in the redux dev-tools
   initialState: null,
   reducers: {
     addUser: (state, action) => {
