@@ -9,9 +9,14 @@ const NavBar = () => {
   const navigateUser = useNavigate();
 
   const handleLogout = async () => {
-    await axios.post("http://localhost:8080/logout");
+    await axios.post(
+      "http://localhost:8080/logout",
+      {},
+      { withCredentials: true }
+    );
     dispatch(removeUser());
     navigateUser("/login");
+    console.log();
   };
 
   return (
@@ -34,7 +39,7 @@ const NavBar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    src={selector.photoURL}
                   />
                 </div>
               </div>
@@ -43,7 +48,7 @@ const NavBar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <Link to={"/profile/view"} className="justify-between">
+                  <Link to="/profile/view" className="justify-between">
                     Profile
                     <span className="badge">New</span>
                   </Link>

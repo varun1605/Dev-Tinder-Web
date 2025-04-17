@@ -11,16 +11,15 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const userData = useSelector((store) => {
-    store.user;
-  });
+  const userData = useSelector((store) => store.user);
   const fetchUser = async () => {
     try {
       const result = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true,
       });
       dispatch(addUser(result.data));
-      console.log(result.data);
+
+      //console.log(result.data.photoURL);
     } catch (err) {
       navigate("/login");
       console.log(err + "No token found");

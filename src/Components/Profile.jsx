@@ -1,4 +1,18 @@
+import { useSelector } from "react-redux";
+import { BASE_URL } from "../utils/constants";
+import UserCard from "./UserCard";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import EditProfile from "./EditProfile";
+
 const Profile = () => {
-  return <div>Profile</div>;
+  const user = useSelector((store) => store.user);
+  return (
+    user && (
+      <div className="flex justify-center p-4 ">
+        <EditProfile user={user} />
+      </div>
+    )
+  );
 };
 export default Profile;

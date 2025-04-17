@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [email, setEmail] = useState("virat@123.com");
-  const [password, setPassword] = useState("Virat@123");
+  const [email, setEmail] = useState("nicholas@123.com");
+  const [password, setPassword] = useState("Nicholas@123");
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const dispatch = useDispatch();
   const navigateUser = useNavigate();
@@ -24,6 +24,7 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(res.data);
+
       dispatch(addUser(res.data));
 
       if (res.status == 200) {
