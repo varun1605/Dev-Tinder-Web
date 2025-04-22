@@ -132,7 +132,7 @@ const EditProfile = ({ user }) => {
         {successMessage && (
           <div
             role="alert"
-            className="alert alert-success  mx-auto my-5 w-1/2 "
+            className="alert alert-success  mx-50  w-1/6 fixed top-5 "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
