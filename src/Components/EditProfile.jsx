@@ -12,6 +12,7 @@ const EditProfile = ({ user }) => {
 
   const [gender, setGender] = useState(user.gender);
   const [skills, setSkills] = useState(user.skills);
+  const [about, setAbout] = useState(user.about);
 
   const [photoURL, setPhotoURL] = useState(user.photoURL);
   const [error, setError] = useState("");
@@ -34,6 +35,7 @@ const EditProfile = ({ user }) => {
           lastName,
           gender,
           skills,
+          about,
           photoURL,
         },
         { withCredentials: true }
@@ -113,6 +115,15 @@ const EditProfile = ({ user }) => {
                 setSkills(e.target.value);
               }}
             />
+            <label className="fieldset-label">About</label>
+            <input
+              type="text"
+              className="input"
+              value={about}
+              onChange={(e) => {
+                setAbout(e.target.value);
+              }}
+            />
             <div className="flex justify-center my-3">
               <button
                 className="btn btn-secondary w-1/2 "
@@ -125,7 +136,7 @@ const EditProfile = ({ user }) => {
           </fieldset>
           <div className="my-7 mx-5">
             <UserCard
-              user={{ firstName, lastName, gender, photoURL, skills }}
+              user={{ firstName, lastName, gender, photoURL, skills, about }}
             />
           </div>
         </div>

@@ -25,6 +25,7 @@ const UserCard = ({ user }) => {
                 <li key={e.trim()}>{e.trim()}</li>
               ))}
             </ul>
+            <p>{user.about}</p>
           </div>
           <div className="card-actions justify-evenly my-5">
             <button className="btn btn-primary">Interested </button>

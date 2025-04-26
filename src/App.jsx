@@ -9,6 +9,7 @@ import appStore from "./utils/appStore";
 import Feed from "./Components/Feed";
 import SignUp from "./Components/SignUp";
 import Connections from "./Components/Connections";
+import Request from "./Components/Request";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
               <Route path="/login" element={<Login />}></Route>
               <Route path="/profile/view" element={<Profile />}></Route>
               <Route path="user/connections" element={<Connections />}></Route>
+              <Route
+                path="/user/connections/requests"
+                element={<Request />}
+              ></Route>
             </Route>
           </Routes>
         </BrowserRouter>
