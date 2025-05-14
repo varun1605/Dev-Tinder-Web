@@ -24,10 +24,17 @@ const Request = () => {
   if (selector.length === 0) return <h1>No requests found</h1>;
   return (
     selector && (
-      <div className="flex  m-5">
-        <div className="card bg-base-300 w-96 shadow-sm">
+      <div
+        className="flex 
+       m-5"
+      >
+        <div className="card bg-base-300 w-96 h-100 shadow-sm">
           <figure>
-            <img src={selector[0]?.fromUserID?.photoURL} alt="Shoes" />
+            <img
+              src={selector[0]?.fromUserID?.photoURL}
+              className="h-50"
+              alt="Shoes"
+            />
           </figure>
           <div className="card-body">
             <h2 className="card-title">
@@ -36,13 +43,19 @@ const Request = () => {
                 {selector[0]?.fromUserID?.lastName}
               </div>
             </h2>
-            <p>{selector[0]?.fromUserID?.about || "This is my dummy about "}</p>
-            <div className="card-actions justify-end">
-              <ul>
+            <p className="mb-1">
+              {selector[0]?.fromUserID?.about || "This is my dummy about "}
+            </p>
+            <div>
+              <ul className="mt-1 m-0 p-0  list-disc list-inside">
                 {selector[0]?.fromUserID?.skills.map((e) => (
                   <li>{e}</li>
                 ))}
               </ul>
+            </div>
+            <div className="mt-5 flex item-center justify-center">
+              <button className="btn btn-primary mx-2">Accept</button>
+              <button className="btn btn-secondary mx-2">Reject</button>
             </div>
           </div>
         </div>
