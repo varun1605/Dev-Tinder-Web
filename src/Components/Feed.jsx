@@ -20,14 +20,19 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
-
+  if (feed.length <= 0)
+    return (
+      <h1 className="flex justify-center text-4xl">
+        No new users are available
+      </h1>
+    );
   return (
     feed && (
       <div className="flex flex-wrap justify-center gap-4 my-8">
-        {/* <UserCard user={feed[1]} /> */}
-        {feed.map((e) => (
+        <UserCard user={feed[0]} />
+        {/* {feed.map((e) => (
           <UserCard user={e} />
-        ))}
+        ))} */}
       </div>
     )
   );
