@@ -6,11 +6,32 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [email, setEmail] = useState("nicholas@123.com");
-  const [password, setPassword] = useState("Nicholas@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [isLoginForm, setIsLoginForm] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const dispatch = useDispatch();
   const navigateUser = useNavigate();
+
+  const handleSignup = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/signup",
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data.savedUser));
+      navigateUser("/profile/view");
+      console.log(res.data.savedUser);
+    } catch (err) {}
+  };
 
   const handleLogin = async () => {
     try {
@@ -46,8 +67,32 @@ const Login = () => {
       <div className="flex justify-center my-12">
         <div className="card bg-base-300 w-96 shadow-sm">
           <div className="card-body">
-            <h2 className="card-title justify-center">Login</h2>
+            <h2 className="card-title justify-center">
+              {isLoginForm ? "Login" : "Sign-Up"}
+            </h2>
             <fieldset className="fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box">
+              {!isLoginForm && (
+                <>
+                  <label className="fieldset-label">First Name</label>
+                  <input
+                    type="email"
+                    className="input"
+                    value={firstName}
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                    }}
+                  />
+                  <label className="fieldset-label">Last Name</label>
+                  <input
+                    type="email"
+                    className="input"
+                    value={lastName}
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                    }}
+                  />
+                </>
+              )}
               <label className="fieldset-label">Email</label>
               <input
                 type="email"
@@ -68,8 +113,11 @@ const Login = () => {
                 }}
               />
             </fieldset>
-            <button className="btn btn-neutral mt-4" onClick={handleLogin}>
-              Login
+            <button
+              className="m-auto btn btn-primary mt-4 w-1/2"
+              onClick={isLoginForm ? handleLogin : handleSignup}
+            >
+              {isLoginForm ? "Login" : "Sign Up"}
             </button>
           </div>
         </div>
@@ -116,6 +164,22 @@ const Login = () => {
           <span>Invalid credentials</span>
         </div>
       )}
+      <div className="flex justify-center">
+        <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-20 border p-4 ">
+          <legend className="fieldset-legend flex justify-center"></legend>
+          <label className="labe ">
+            <input
+              type="checkbox"
+              defaultChecked
+              className="toggle"
+              onClick={() => setIsLoginForm(!isLoginForm)}
+            />
+          </label>
+        </fieldset>
+        <p className="mx-5 my-6">
+          Toggle to switch to {isLoginForm ? "Signup" : "login"} !
+        </p>
+      </div>
     </div>
   );
 };

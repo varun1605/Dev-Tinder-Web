@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { removeUserFeed } from "../utils/feedSlice";
 
 const UserCard = ({ user }) => {
-  console.log(user._id);
   const dispatch = useDispatch();
 
   const skillsArray = Array.isArray(user?.skills)
@@ -24,6 +23,13 @@ const UserCard = ({ user }) => {
       console.log(err);
     }
   };
+  if (!user) {
+    return (
+      <h1 className="flex flex-wrap justify-center gap-4 my-8 text-3xl">
+        No users found
+      </h1>
+    );
+  }
 
   //const { firstName, lastName, photoURL, gender, skills, age } = user;
   return (

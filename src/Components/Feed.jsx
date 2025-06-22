@@ -20,12 +20,15 @@ const Feed = () => {
   useEffect(() => {
     getFeed();
   }, []);
-  if (feed.length <= 0)
-    return (
-      <h1 className="flex justify-center text-4xl">
-        No new users are available
-      </h1>
-    );
+  if (!feed) {
+    <h1 className="flex justify-center text-4xl">No new users available!</h1>;
+  }
+  // if (feed.length <= 0)
+  //   return (
+  //     <h1 >
+  //       No new users are available
+  //     </h1>
+  //   );
   return (
     feed && (
       <div className="flex flex-wrap justify-center gap-4 my-8">
