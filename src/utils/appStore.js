@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./userSlice";
-import requestReducer from "./request_temp";
+import requestReducer from "./requestSlice";
 import feedReducer from "./feedSlice";
 import connectionReducer from "./connectionSlice";
 
