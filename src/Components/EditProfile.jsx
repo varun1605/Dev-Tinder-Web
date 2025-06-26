@@ -17,14 +17,15 @@ const EditProfile = ({ user }) => {
   const [photoURL, setPhotoURL] = useState(user.photoURL);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
-
   useEffect(() => {
-    setFirstName(user.firstName);
-    setlastName(user.lastName);
-    setGender(user.gender);
-    setSkills(user.skills);
-    setAbout(user.about);
-    setPhotoURL(user.photoURL);
+    if (user) {
+      setFirstName(user.firstName);
+      setlastName(user.lastName);
+      setGender(user.gender);
+      setSkills(user.skills);
+      setAbout(user.about);
+      setPhotoURL(user.photoURL);
+    }
   }, [user]);
 
   const handleSaveProfile = async () => {
@@ -50,13 +51,7 @@ const EditProfile = ({ user }) => {
         { withCredentials: true }
       );
 
-      // dispatch(addUser(result?.data?.data));
-      if (result?.data?.data) {
-        dispatch(addUser(result.data.data));
-      } else {
-        console.error("Unexpected response format", result);
-        setError("Something went wrong updating the profile.");
-      }
+      dispatch(addUser(result?.data?.data));
     } catch (err) {
       setError(err.response.data);
       setSuccessMessage(false);
