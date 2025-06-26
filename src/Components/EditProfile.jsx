@@ -18,6 +18,15 @@ const EditProfile = ({ user }) => {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
 
+  useEffect(() => {
+    setFirstName(user.firstName);
+    setlastName(user.lastName);
+    setGender(user.gender);
+    setSkills(user.skills);
+    setAbout(user.about);
+    setPhotoURL(user.photoURL);
+  }, [user]);
+
   const handleSaveProfile = async () => {
     try {
       setError("");
