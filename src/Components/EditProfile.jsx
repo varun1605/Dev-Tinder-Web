@@ -52,6 +52,7 @@ const EditProfile = ({ user }) => {
       );
 
       dispatch(addUser(result?.data?.data));
+      console.log("Updated user data dispatched:", result.data.data);
     } catch (err) {
       setError(err.response.data);
       setSuccessMessage(false);

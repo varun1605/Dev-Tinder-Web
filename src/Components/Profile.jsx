@@ -7,6 +7,7 @@ import EditProfile from "./EditProfile";
 
 const Profile = () => {
   const user = useSelector((store) => store.user);
+  console.log("Redux user state:", user);
   return (
     user && (
       <div className="flex justify-center p-4 ">
