@@ -41,7 +41,13 @@ const EditProfile = ({ user }) => {
         { withCredentials: true }
       );
 
-      dispatch(addUser(result?.data?.data));
+      // dispatch(addUser(result?.data?.data));
+      if (result?.data?.data) {
+        dispatch(addUser(result.data.data));
+      } else {
+        console.error("Unexpected response format", result);
+        setError("Something went wrong updating the profile.");
+      }
     } catch (err) {
       setError(err.response.data);
       setSuccessMessage(false);
