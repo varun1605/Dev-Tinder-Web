@@ -1,30 +1,17 @@
-// import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-// const userSlice = createSlice({
-//   name: "user", // this name is just for the sake of debugging in the redux dev-tools
-//   initialState: null,
-//   reducers: {
-//     addUser: (state, action) => {
-//       return action.payload;
-//     },
-//     removeUser: (state, action) => {
-//       return null;
-//     },
-//   },
-// });
+const userSlice = createSlice({
+  name: "user", // this name is just for the sake of debugging in the redux dev-tools
+  initialState: null,
+  reducers: {
+    addUser: (state, action) => {
+      return action.payload;
+    },
+    removeUser: (state, action) => {
+      return null;
+    },
+  },
+});
 
-// export const { addUser, removeUser } = userSlice.actions;
-// export default userSlice.reducer;
-
-// Profile.jsx
-import EditProfile from "./EditProfile";
-
-const Profile = () => {
-  return (
-    <div className="flex justify-center p-4 ">
-      <EditProfile />
-    </div>
-  );
-};
-
-export default Profile;
+export const { addUser, removeUser } = userSlice.actions;
+export default userSlice.reducer;
