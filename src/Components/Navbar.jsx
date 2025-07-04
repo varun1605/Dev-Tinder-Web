@@ -20,7 +20,10 @@ const NavBar = () => {
     <>
       <div className="navbar bg-base-300 shadow-sm">
         <div className="flex-1">
-          <Link to={"/"} className="btn btn-ghost text-xl">
+          <Link
+            to={"/user/feed"}
+            className="btn btn-ghost text-xl bg-gradient-to-r from-pink-500 to-cyan-400 bg-clip-text text-transparent"
+          >
             DevTinder
           </Link>
         </div>

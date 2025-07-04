@@ -6,6 +6,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect } from "react";
+import DevTinderLanding from "./DevTinderLanding";
 
 const Body = () => {
   const dispatch = useDispatch();

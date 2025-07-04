@@ -36,7 +36,9 @@ const UserCard = ({ user }) => {
     <div>
       <div className="fieldset w-xs bg-base-300 border border-base-300 p-4 rounded-box  ">
         <figure>
-          <img src={user.photoURL} alt="Shoes" />
+          {user.photoURL && <img src={user.photoURL} alt="User" />}
+
+          {/* <img src={user.photoURL} alt="Shoes" /> */}
         </figure>
         <div className="card-body">
           <h2 className="card-title">{user.firstName + " " + user.lastName}</h2>

@@ -232,7 +232,13 @@ const EditProfile = () => {
       console.log("Updated user data dispatched:", result.data.data);
     } catch (err) {
       console.error(err);
-      setError(err.response?.data || "Something went wrong");
+      // setError(err.response?.data || "Something went wrong");
+      setError(
+        typeof err.response?.data === "string"
+          ? err.response.data
+          : err.response?.data?.error || "Something went wrong"
+      );
+
       setSuccessMessage(false);
     }
   };
