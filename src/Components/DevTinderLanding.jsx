@@ -978,34 +978,14 @@ const DevTinderLanding = () => {
                   </motion.div>
                 ))}
               </div>
-
-              {/* <motion.div
-                className="flex space-x-6 mb-4 md:mb-0"
-                variants={staggerContainer}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-              >
-                {[Github, Twitter, Linkedin].map((Icon, index) => (
-                  <motion.div
-                    key={index}
-                    variants={staggerItem}
-                    whileHover={{
-                      scale: 1.2,
-                      y: -5,
-                      color: "#ec4899",
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <a
-                      href="#"
-                      className="text-white/60 hover:text-white transition-colors"
-                    >
-                      <Icon style={{ width: "24px", height: "24px" }} />
-                    </a>
-                  </motion.div>
-                ))}
-              </motion.div> */}
+              <div className="flex p-4 ">
+                <ul className="flex space-x-4">
+                  <li>Terms and conditions </li>
+                  <li>Refund policy</li>
+                  <li>Contact us</li>
+                  <li>Cancellation policy</li>
+                </ul>
+              </div>
 
               <motion.p
                 className="text-white/60 text-sm"
