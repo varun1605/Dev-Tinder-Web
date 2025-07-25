@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const ConnectionCard = ({ connection }) => {
   if (!connection) return <div>Loading...</div>;
-  const { firstName, lastName, photoURL, skills } = connection;
+  const { _id, firstName, lastName, photoURL, skills } = connection;
   return (
     <div>
       {" "}
@@ -16,7 +18,10 @@ const ConnectionCard = ({ connection }) => {
           <h2 className="card-title">{firstName + " " + lastName}</h2>
           <p>{skills}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Chat</button>
+            <Link to={"/chat/" + _id}>
+              {" "}
+              <button className="btn btn-primary">Chat</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -84,6 +84,7 @@ import SignUp from "./Components/SignUp";
 import Connections from "./Components/Connections";
 import Request from "./Components/Request";
 import DevTinderLanding from "./Components/DevTinderLanding";
+import Chat from "./Components/Chat";
 
 function App() {
   return (
@@ -99,6 +100,7 @@ function App() {
 
           {/* Protected pages with navbar/footer */}
           <Route element={<Body />}>
+            <Route path="/chat/:targetUserId" element={<Chat />} />
             <Route path="/user/feed" element={<Feed />} />
             <Route path="/profile/view" element={<Profile />} />
             <Route path="/user/connections" element={<Connections />} />

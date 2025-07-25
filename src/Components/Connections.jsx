@@ -13,7 +13,6 @@ const Connections = () => {
       withCredentials: true,
     });
     dispatch(addConnections(res.data.filteredData));
-    console.log(res.data.filteredData);
   };
   useEffect(() => {
     fetchConnections();
